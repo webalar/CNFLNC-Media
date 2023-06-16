@@ -1,0 +1,344 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+:root {
+    --height: 5vh;
+    --width: 24vw;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .icon{
+    font-size: 12px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 250ms ease-in-out;
+  }
+
+
+.theme{
+    transition: 1s all ease;
+}
+  
+.light {
+    background-color: #EEEEEE;
+    color: #1A1A1A;
+}
+  
+.dark {
+    background-color: #1A1A1A;
+    color: #EEEEEE;
+}
+
+body {
+    /* min-height: 200vh; */
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    max-width: 100vw;
+    position: fixed;
+    bottom: 32px;
+    left: 32px;
+    right: 32px;
+    z-index: 999;
+}
+
+header .logo-container {
+    height: 5rem;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+}
+
+header .logo-container a {
+    padding: 8px;
+    filter: invert(100%)
+}
+
+header .menu-container {
+    height: 5rem;
+    /* aspect-ratio: 1; */
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    padding: 4px;
+    gap: 4px
+}
+
+.menu-link {
+    @apply h-full w-full grid place-items-center aspect-square bg-neutral-800 text-white text-sm transition-all rounded-md;
+}
+
+.menu-trigger {
+    @apply h-full w-full grid place-items-center aspect-square bg-neutral-800 transition-all rounded-md;
+    cursor: pointer
+}
+
+.icon-lines .line-1,
+.icon-lines .line-2 {
+    @apply bg-white transition-all ;
+    height: 2px;
+    width: 40px;
+    border-radius: 100em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .section-wrapper {
+    height: 100%;
+    width: 100%
+} */
+
+.dot {
+    @apply bg-red-900;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: var(--height);
+    aspect-ratio: 1;
+    border-radius: 100em;
+}
+
+.bar-wrapper {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* transform-origin: left center; */
+    transform: translate(-50%, -50%);
+    height: var(--height);
+    width: calc(var(--width) * 2);
+    background-color: transparent;
+    border-radius: 100em;
+    max-height: 100vw;
+    z-index: 10;
+}
+
+.bar {
+    @apply bg-[#9AB0EB];
+    height: var(--height);
+    width: calc(var(--width) + (var(--height) / 1/2));
+    /* overflow-x: hidden; */
+    border-radius: 100em;
+}
+
+.content-wrapper {
+    position: fixed;
+    top: 48%;
+    left: 30%;
+    /* transform: translateY(-50%); */
+}
+
+.text-wrapper {
+    visibility: hidden;
+    width: min(15em, 90%);
+    padding-top: 20px;
+}
+
+.projects {
+    min-height: 100vh;
+    margin-top: 10em;
+    overflow: hidden;
+}
+
+.scroll-section-outer {
+    overflow: hidden;
+}
+
+.scroll-trigger::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: radial-gradient(rgba(0, 0, 0, 0.5), #1A1A1A);
+    backdrop-filter: blur(50px);
+    /* z-index: 0; */
+}
+  
+.scroll-section-inner {
+    height: 100vh;
+    /* width: 500vw; */
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    /* position: relative; */
+}
+
+.scroll-section {
+    @apply bg-white;
+    height: 35vh;
+    /* width: 35vw; */
+    aspect-ratio: 6/3;
+    margin-inline: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.scroll-section .project-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: relative;
+    transform: scale(1.01);
+}
+
+.project-overlay:hover {
+    opacity: 0;
+}
+
+.scroll-section .project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transform: scale(1.02);
+    transition: all 250ms ease;
+}
+
+.scroll-section .project-img:after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.scroll-section .project-title {
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.about-banner {
+    height: 70vh;
+}
+
+/* .category-grid {
+    height: calc(100vh - 10px);
+} */
+
+.category-item-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover
+}
+
+.category-item {
+    @apply border border-black font-medium text-lg uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 250ms ease-in-out;
+    min-width: 100%;
+    height: 100%;
+    padding: 50px;
+    text-align: center;
+}
+
+.light .category-item {
+    @apply bg-black text-white;
+}
+
+.dark .category-item {
+    @apply bg-white text-black;
+}
+
+.dark .category-item:hover {
+    @apply border border-white bg-opacity-50 text-black;
+}
+
+.light .category-item:hover {
+    @apply border border-black bg-opacity-50 text-white;
+}
+  
+#video {
+    height: 100vh;
+}
+
+.overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.bg-blur {
+    backdrop-filter: blur(20px);
+}
+
+
+.project-details-wrapper .project-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 60%;
+}
+
+.contact-form .form-wrapper .form-group {
+    width: min(90vw, 700px);
+    margin-block: 32px;
+    border-bottom: 1px solid #EEEEEE;
+}
+
+.contact-form .form-wrapper .form-group input[type="text"],
+.contact-form .form-wrapper .form-group input[type="email"],
+.contact-form .form-wrapper .form-group textarea {
+    @apply py-4 px-6;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    /* border: none; */
+    outline: none;
+    border: 1px;
+    border-color: #EEEEEE;
+}
+
+.contact-details .contact-col {
+    text-align: center;
+}
+
+.contact-details .contact-col img {
+    width: 30px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.contact-details .contact-col a {
+    @apply font-medium text-2xl
+}
